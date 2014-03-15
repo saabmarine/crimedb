@@ -1,0 +1,93 @@
+{% load chartkick %}
+{% load staticfiles %}
+
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <script src="{% static 'js/jquery-1.11.0.js' %}"></script>
+   <script src="{% static 'js/highcharts.js' %}"></script>
+   <script src="{% static 'js/chartkick.js' %}"></script>
+   <script src="{% static 'js/bootstrap.min.js' %}"></script>
+   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+   <title>Crime DB</title>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbad-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'homepage' %}">CrimeDB</a>
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'report_crime' %}">Report Crime</a></li>
+        <li class="active"><a href="{% url 'crimes' %}">Crimes</a></li>
+        <li><a href="{% url 'suspects' %}">Suspects</a></li>
+        <li><a href="{% url 'agents' %}">Agents</a></li>
+        <li><a href="{% url 'locations' %}">Locations</a></li>
+        <li><a href="{% url 'add_category' %}">Add Category</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+  <div class="row">
+        <div class="col-md-2">
+          TEXT HERE
+        </div>
+
+        <div class="col-md-10" style="text-align:left;">
+
+          <table class="table table-striped">
+            <tr>
+              <td><b> ID </b></td>
+              <td><b> Location </b></td>
+              <td><b> Category </b></td>
+              <td><b> Suspect </b></td>
+              <td><b> Status </b></td>
+            </tr>
+          {% for report in reports %}
+            <tr>
+              <td><a href="{% url 'crimes_detail' report.id %}"/>{{ report.id }}</a></td>
+              <td><a href="{% url 'crimes_detail' report.id %}"/>{{ report.location.loc_name }}</a></td> 
+              <td><a href="{% url 'crimes_detail' report.id %}"/>{{ report.category }}</td>
+              <td>{{ report.suspect }}</td>
+              <td>{{ report.status }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+        <br/>
+          <div class="pagination">
+            <span class="step-links">
+            {% if reports.has_previous %}
+            <a href="?page={{ reports.previous_page_number }}">previous</a>
+            {% endif %}
+            <span class="current">
+            Page {{ reports.number }} of {{ reports.paginator.num_pages }}
+            </span>
+            {% if reports.has_next %}
+            <a href="?page={{ reports.next_page_number }}">next</a>
+            {% endif %}
+            </span>
+          </div>
+        </div>
+  </div>
+</div>
+
+</body>
+</html>
