@@ -109,10 +109,10 @@ def homepage(request):
 
     z = Report.objects.all().count()
     for x in range(0,24):
-        if Report.objects.filter(time__startswith=timeSlot[x]).count() == 0:
+        if Report.objects.filter(time__startswith=timeSlot[x]).exclude(status="deleted").count() == 0:
              data.append((timeSlotChart[x],0))
         else:
-            data.append((timeSlotChart[x],round(Report.objects.filter(time__startswith=timeSlot[x]).count()/z,2)))
+            data.append((timeSlotChart[x],round(Report.objects.filter(time__startswith=timeSlot[x]).exclude(status="deleted").count()/z,2)))
 
     return render(request, 'homepage.html', {'data':data})
 
