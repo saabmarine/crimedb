@@ -81,94 +81,46 @@ def populate_category():
 
 def populate_agent():
 	print("Populating 'Agent'...")
-	#20
-	Agent(first_name="Kevin",last_name="Durant",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Kevin Durant inserted...')
-	Agent(first_name="Anthony",last_name="Davis",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Anthony Davis inserted...')
-	Agent(first_name="Kevin",last_name="Love",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Kevin Love inserted...')
-	Agent(first_name="Chris",last_name="Paul",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Chris Paul inserted...')
-	Agent(first_name="Stephen",last_name="Curry",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Stephen Curry inserted...')
-	Agent(first_name="Dirk",last_name="Nowitzki",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Dirk Nowitzki inserted...')
-	Agent(first_name="James",last_name="Harden",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('James Harden inserted...')
-	Agent(first_name="Serge",last_name="Ibaka",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Serge Ibaka inserted...')
-	Agent(first_name="Lamarcus",last_name="Aldridge",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Lamarcus Aldridge inserted...')
-	Agent(first_name="Russel",last_name="Westbrook",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Russel Westbrook inserted...')
-	Agent(first_name="Damian",last_name="Lillard",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Damian Lillard inserted...')
-	Agent(first_name="Isaiah",last_name="Thomas",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Isaiah Thomas inserted...')
-	Agent(first_name="Goran",last_name="Dragic",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Goran Dragic inserted...')
-	Agent(first_name="Ty",last_name="Lawson",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Ty Lawson inserted...')
-	Agent(first_name="Rudy",last_name="Gay",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Rudy Gay inserted...')
-	Agent(first_name="Demarcus",last_name="Cousins",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Demarcus Cousins inserted...')
-	Agent(first_name="DeAndre",last_name="Jordan",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('DeAndre Jordan inserted...')
-	Agent(first_name="Mike",last_name="Conley",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Mike Conley inserted...')
-	Agent(first_name="Blake",last_name="Griffin",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Blake Griffin inserted...')
-	Agent(first_name="Chandler",last_name="Parsons",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Chandler Parsons inserted...')
+	#50
+
+	first = ['Kevin','Anthony','Kevin','Chris','Stephen','Dirk','James','Serge','Lamarcus','Russel',
+			'Damian','Isaiah','Goran','Ty','Rudy','Demarcus','DeAndre','Mike','Blake','Chandler',
+			'Kevin','Tim','Marc','Andrew','Eric','Ricky','Wesley','Klay','Pau','Jose',
+			'Jrue', 'Gerald', 'JJ', 'Gordan', 'Monta', 'David', 'Jamal','Channing', 'Shawn', 'Derrick',
+			'Manu', 'Patrick', 'Danny', 'Andrei', 'Terrence', 'Mo', 'Wilson', 'Darren', 'Kenneth', 'Eric']
+
+	last = ['Durant','Davis','Love','Paul','Curry','Nowitzki','Harden','Ibaka','Aldridge','Westbrook',
+			'Lillard','Thomas','Dragic','Lawson','Gay','Cousins','Jordan','Conley','Griffin','Parsons',
+			'Martin', 'Duncan', 'Gasol', 'Bogut', 'Bledsoe', 'Rubio', 'Mathhews', 'Thompson', 'Gasol', 'Calderon',
+			'Holiday', 'Green', 'Redick', 'Hayward', 'Ellis', 'Lee', 'Crawford', 'Frye', 'Marion','Favors',
+			'Ginobli', 'Beverly', 'Green', 'Iguodala', 'Jones', 'Williams', 'Chandler', 'Collison','Faried', 'Gordon']
+
+	for i in range(0,50):
+		Agent(first_name=first[i],last_name=last[i],status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
+		print(str(first[i])+' '+str(last[i])+' inserted...' + str(i))
 
 	print("Done populating 'Agent'")	
 	return
 
 def populate_suspect():
 	print("Populating 'Suspect'...")
-	#20
-	Suspect(first_name="Lebron",last_name="James",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Lebron James inserted...')
-	Suspect(first_name="Carmelo",last_name="Anthony",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Carmelo Anthony inserted...')
-	Suspect(first_name="Paul",last_name="George",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Paul George inserted...')
-	Suspect(first_name="Kyle",last_name="Lowry",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Kyle Lowry inserted...')
-	Suspect(first_name="Brook",last_name="Lopez",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Brook Lopez inserted...')
-	Suspect(first_name="Trevor",last_name="Ariza",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Trevor Ariza inserted...')
-	Suspect(first_name="Paul",last_name="Millsap",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Paul Millsap inserted...')
-	Suspect(first_name="Al",last_name="Jefferson",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Al Jefferson inserted...')
-	Suspect(first_name="Chris",last_name="Bosh",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Chris Bosh inserted...')
-	Suspect(first_name="John",last_name="Wall",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('John Wall inserted...')
-	Suspect(first_name="Kyrie",last_name="Irving",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Kyrie Irving inserted...')
-	Suspect(first_name="Joakim",last_name="Noah",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Isaiah Thomas inserted...')
-	Suspect(first_name="Kyle",last_name="Korver",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Kyle Korver inserted...')
-	Suspect(first_name="Andre",last_name="Drummond",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Andre Drummond inserted...')
-	Suspect(first_name="Thaddeus",last_name="Young",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Thaddeus Young inserted...')
-	Suspect(first_name="Spencer",last_name="Hawes",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Spencer Hawes inserted...')
-	Suspect(first_name="Dwyane",last_name="Wade",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Dwyane Wade inserted...')
-	Suspect(first_name="Demar",last_name="Derozan",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Demar Derozan inserted...')
-	Suspect(first_name="Kemba",last_name="Walker",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('Kemba Walker inserted...')
-	Suspect(first_name="David",last_name="West",status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
-	print('David West inserted...')
+	#50
+
+	first = ['Lebron','Carmelo','Paul','Kyle','Brook','Trevor','Paul','Al','Chris','John',
+			'Kyrie','Joakim','Kyle','Andre','Thaddeus','Spencer','Dwyane','Demar','Kemba','David',
+			'Marcin','Jimmy', 'Deron','Aaron','Tyson','Anderson', 'Paul','George', 'Amir','Roy',
+			'Brandon','Luol','Tobias','Bradley','Greg','Lance','Joe','Brandon', 'Jameer','Mike',
+			'Josh','John','Victor','Andrea','DJ','Jeff','Michael','Patrick','JR','Jeff']
+
+	last = ['James','Anthony','George','Lowry','Lopez','Ariza','Millsap','Jefferson','Bosh','Wall',
+			'Irving','Noah', 'Korver','Drummond','Young','Hawes','Wade','Derozan','Walker','West',
+			'Gortat','Butler','Williams','Afflalo','Chandler','Varejao','Pierce','Hill','Johnson','Hibbert',
+			'Jennings','Deng','Harris','Beal','Monroe','Stephenson','Johnson','Knight','Nelson','Dunleavy',
+			'Smith','Henson','Oladipo','Bargnani','Agustin','Green','Carter-Williams','Patterson','Smith','Teague']
+
+	for i in range(0,50):
+		Suspect(first_name=first[i],last_name=last[i],status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
+		print(str(first[i])+' '+str(last[i])+' inserted...' + str(i))
 
 	print("Done populating 'Suspect'")	
 	return
@@ -184,7 +136,7 @@ def populate_report(n):
 		end_date = date.today().toordinal()
 		random_day = date.fromordinal(random.randint(start_date,end_date))
 		random_time = str(random.randint(00,23))+":"+str(random.randint(00,59))
-		Report(location=(get_object_or_404(Location,pk=(random.randint(1,23)))),category=(get_object_or_404(Category,pk=(random.randint(1,8)))),suspect=(get_object_or_404(Suspect,pk=(random.randint(1,20)))),status="active", time=random_time,date=random_day).save()
+		Report(location=(get_object_or_404(Location,pk=(random.randint(1,23)))),category=(get_object_or_404(Category,pk=(random.randint(1,8)))),suspect=(get_object_or_404(Suspect,pk=(random.randint(1,50)))),status="active", time=random_time,date=random_day).save()
 		print('Report #'+str(n)+' inserted...')
 
 	print("Done populating 'Report'")
@@ -197,14 +149,16 @@ def populate_investigate(n):
 	for a in range(1,nn):
 		x = random.randint(2,6)
 		for b in range(1,x):
-			Investigate(report=(get_object_or_404(Report,pk=a)),agent=(get_object_or_404(Agent,pk=(random.randint(1,20)))),status="active").save()
-			print('Investigate #'+str(a)+'.'+str(b)+' inserted...')		
+			t = random.randint(1,50)
+			if Investigate.objects.all().filter(report=(get_object_or_404(Report,pk=a)),agent=(get_object_or_404(Agent,pk=t)),status="active").exists()==False:
+				Investigate(report=(get_object_or_404(Report,pk=a)),agent=(get_object_or_404(Agent,pk=t)),status="active").save()
+				print('Investigate #'+str(a)+'.'+str(b)+' inserted...')		
 
 	print("Done populating 'Investigate'")
 	return
 
 def populate():
-	n = input('Enter number of reports (n>300): ')
+	n = input('Enter number of reports (greater than 300): ')
 	print('Start populating database...')
 	populate_location()
 	populate_category()
