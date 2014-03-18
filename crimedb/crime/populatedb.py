@@ -5,7 +5,7 @@ import random
 
 def populate_location():
 	print("Populating 'Location'...")
-	#23
+	#25
 	Location(loc_name='Manila').save()
 	print('Manila inserted...')
 	Location(loc_name='Caloocan').save()
@@ -52,13 +52,17 @@ def populate_location():
 	print('Calamba inserted...')
 	Location(loc_name='Santa Rosa').save()
 	print('Santa Rosa inserted...')
+	Location(loc_name='Bacoor').save()
+	print('Bacoor inserted...')
+	Location(loc_name='Cavite').save()
+	print('Cavite inserted...')
 
 	print("Done populating 'Location'")
 	return
 
 def populate_category():
 	print("Populating 'Category'...")
-	#8
+	#10
 	Category(title='Murder').save()
 	print('Murder inserted...')
 	Category(title='Robbery').save()
@@ -75,6 +79,10 @@ def populate_category():
 	print('Smuggling inserted...')
 	Category(title='Vandalism').save()
 	print('Vandalism inserted...')
+	Category(title='Piracy').save()
+	print('Piracy inserted...')
+	Category(title='Racketeering').save()
+	print('Racketeering inserted...')
 
 	print("Done populating 'Category'")
 	return
@@ -136,7 +144,7 @@ def populate_report(n):
 		end_date = date.today().toordinal()
 		random_day = date.fromordinal(random.randint(start_date,end_date))
 		random_time = str(random.randint(00,23))+":"+str(random.randint(00,59))
-		Report(location=(get_object_or_404(Location,pk=(random.randint(1,23)))),category=(get_object_or_404(Category,pk=(random.randint(1,8)))),suspect=(get_object_or_404(Suspect,pk=(random.randint(1,50)))),status="active", time=random_time,date=random_day).save()
+		Report(location=(get_object_or_404(Location,pk=(random.randint(1,23)))),category=(get_object_or_404(Category,pk=(random.randint(1,10)))),suspect=(get_object_or_404(Suspect,pk=(random.randint(1,50)))),status="active", time=random_time,date=random_day).save()
 		print('Report #'+str(n)+' inserted...')
 
 	print("Done populating 'Report'")
@@ -158,7 +166,7 @@ def populate_investigate(n):
 	return
 
 def populate():
-	n = input('Enter number of reports (greater than 300): ')
+	n = input('Enter number of reports ( greater than 100 ): ')
 	print('Start populating database...')
 	populate_location()
 	populate_category()
