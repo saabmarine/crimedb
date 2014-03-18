@@ -104,7 +104,7 @@ def populate_agent():
 			'Ginobli', 'Beverly', 'Green', 'Iguodala', 'Jones', 'Williams', 'Chandler', 'Collison','Faried', 'Gordon']
 
 	for i in range(0,50):
-		Agent(first_name=first[i],last_name=last[i],status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
+		Agent(first_name=first[i],last_name=last[i],status="active",location=(get_object_or_404(Location,pk=(random.randint(1,25))))).save()
 		print(str(first[i])+' '+str(last[i])+' inserted...' + str(i))
 
 	print("Done populating 'Agent'")	
@@ -127,7 +127,7 @@ def populate_suspect():
 			'Smith','Henson','Oladipo','Bargnani','Agustin','Green','Carter-Williams','Patterson','Smith','Teague']
 
 	for i in range(0,50):
-		Suspect(first_name=first[i],last_name=last[i],status="active",location=(get_object_or_404(Location,pk=(random.randint(1,23))))).save()
+		Suspect(first_name=first[i],last_name=last[i],status="active",location=(get_object_or_404(Location,pk=(random.randint(1,25))))).save()
 		print(str(first[i])+' '+str(last[i])+' inserted...' + str(i))
 
 	print("Done populating 'Suspect'")	
@@ -144,7 +144,7 @@ def populate_report(n):
 		end_date = date.today().toordinal()
 		random_day = date.fromordinal(random.randint(start_date,end_date))
 		random_time = str(random.randint(00,23))+":"+str(random.randint(00,59))
-		Report(location=(get_object_or_404(Location,pk=(random.randint(1,23)))),category=(get_object_or_404(Category,pk=(random.randint(1,10)))),suspect=(get_object_or_404(Suspect,pk=(random.randint(1,50)))),status="active", time=random_time,date=random_day).save()
+		Report(location=(get_object_or_404(Location,pk=(random.randint(1,25)))),category=(get_object_or_404(Category,pk=(random.randint(1,10)))),suspect=(get_object_or_404(Suspect,pk=(random.randint(1,50)))),status="active", time=random_time,date=random_day).save()
 		print('Report #'+str(n)+' inserted...')
 
 	print("Done populating 'Report'")
