@@ -30,13 +30,12 @@ To pre-populate the database:
    7. Then run 'populatedb.populate()'
    8. Wait for the script to finish and your database has been pre-populated
 
-   Generated data
-There should be:
-   - 25 Locations
-   - 10 Categories
-   - 50 Agents
-   - 50 Suspects
-   - n Reports
+   Generated data:
+25 Locations
+10 Categories
+50 Agents
+50 Suspects
+n Reports
 
 ==========================================================================================
 
