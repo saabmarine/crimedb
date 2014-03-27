@@ -155,7 +155,7 @@ def populate_investigate(n):
 #	count = 0
 	nn = int(n)+1
 	for a in range(1,nn):
-		x = random.randint(2,6)
+		x = random.randint(2,11)
 		for b in range(1,x):
 			t = random.randint(1,50)
 			if Investigate.objects.all().filter(report=(get_object_or_404(Report,pk=a)),agent=(get_object_or_404(Agent,pk=t)),status="active").exists()==False:

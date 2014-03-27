@@ -38,7 +38,7 @@
         <li><a href="{% url 'suspects' %}">Suspects</a></li>
         <li><a href="{% url 'agents' %}">Agents</a></li>
         <li class="active"><a href="{% url 'locations' %}">Locations</a></li>
-        <li><a href="{% url 'add_category' %}">Add Category</a></li>
+        
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -57,9 +57,9 @@
 
         <div class="col-md-10" style="text-align:center;">
 			<b> <h1>{{ locations_detail.loc_name }}</h1></b>
-			<b> <h3>Average # of Crimes per Hour</h3></b>
+			<b> <h3>Average Number of Crimes per Hour</h3></b>
 			{% column_chart data %}
-			<b> <h3>% of Crimes per Crime Category</h3></b>
+			<b> <h3>Percent of Crimes per Crime Category</h3></b>
         	{% pie_chart data2 with library={"title":"Crime Category"} %}
         </div>
 	</div>

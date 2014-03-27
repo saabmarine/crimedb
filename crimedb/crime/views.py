@@ -254,7 +254,22 @@ def locations(request):
 #        locations = paginator.page(1)
 #    except EmptyPage:
 #        locations = paginator.page(paginator.num_pages)
-    
+
+    timeSlotChart = ['12am', '01am','02am', '03am', '04am',
+                '05am', '06am','07am', '08am', '09am',
+                '10am', '11am','12pm', '01pm', '02pm',
+                '03pm', '04pm','05pm', '06pm', '07pm',
+                '08pm', '09pm','10pm', '11pm']
+    timeSlot = ['00','01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23']
+    data3 = []
+
+    z = Report.objects.all().count()
+    for x in range(0,24):
+        if Report.objects.filter(time__startswith=timeSlot[x]).exclude(status="deleted").count() == 0:
+             data3.append((timeSlotChart[x],0))
+        else:
+            data3.append((timeSlotChart[x],round(Report.objects.filter(time__startswith=timeSlot[x]).exclude(status="deleted").count()/z,2)))
+
     categories = Category.objects.all()
     data=[]
     data2=[]
@@ -269,7 +284,7 @@ def locations(request):
         else:
             data2.append((str(loc.loc_name),round((Report.objects.filter(location=loc).exclude(status="deleted").count()/x),2)))
     data2 = sorted(data2)
-    return render(request, 'locations.html', {"locations":locations, "data":data, "data2":data2})
+    return render(request, 'locations.html', {"locations":locations, "data":data, "data2":data2, "data3":data3,})
 
 def locations_detail(request, loc_id):
     locations = Location.objects.all().order_by('loc_name')
