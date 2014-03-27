@@ -1,35 +1,34 @@
-
 MP for CS 165
 crimedb
 
 =======
 
 Technology used/required:
-   -PostgreSQL 9.3
-   -Python 3.3
-   -Django 1.6
+   - PostgreSQL 9.3
+   - Python 3.3
+   - Django 1.6
 
    (files already included)
-   -JQuery 1.11
-   -Bootstrap 3
-   -Chartkick
+   - JQuery 1.11
+   - Bootstrap 3
+   - Chartkick
 
 =========================
 
 To pre-populate the database:
    Create database
-1) Create a database named 'crimedb' with password 'password' and set owner as 'postgres'.
+   1) Create a database named 'crimedb' with password 'password' and set owner as 'postgres'.
 
    Creat tables for database
-2) Run cmd and go to the directory of the project.
-3) Run 'python manage.py syncdb'. This should automatically create the required tables.
-4) Create your superuser
+   2) Run cmd and go to the directory of the project.
+   3) Run 'python manage.py syncdb'. This should automatically create the required tables.
+   4) Create your superuser
 
    Run script for data
-5) Still in the project directory, run 'python manage.py shell'.
-6) In the python shell, 'from crime import populatedb'
-7) Then run 'populatedb.populate()'
-8) Wait for the script to finish and your database has been pre-populated
+   5) Still in the project directory, run 'python manage.py shell'.
+   6) In the python shell, 'from crime import populatedb'
+   7) Then run 'populatedb.populate()'
+   8) Wait for the script to finish and your database has been pre-populated
 
    Generated data
 There should be:
