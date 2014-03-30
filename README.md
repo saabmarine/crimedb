@@ -39,6 +39,13 @@ n Reports
 
 ==========================================================================================
 
+To access the website:
+   1. Run cmd and go to the directory of the project
+   2. 'python manage.py runserver'
+   3. Open browser and go to 'http://127.0.0.1:8000/crime' for the homepage
+
+==========================================================================================
+
 Basic requirements:
    Reports
    - Min 5 categories
